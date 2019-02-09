@@ -1,42 +1,53 @@
 <?php
-include 'config/Functions.php';
+include '../../config/Functions.php';
 
 //Koneksi
 $konek = mysqli_connect("localhost","root","","les_php");
 
 //Cek apakah button simpan sudah diklik atau belum
 if(isset($_POST["simpan"])){
+
+  
   
     //Cek apakah tambah data berhasil atau tidak ?
     if (tambah($_POST) > 0) {
         echo "
             <script>
                 alert('Data berhasil ditambahkan !');
-                document.location.href = 'Databuku.php';
+                document.location.href = 'ReqDatabuku.php';
             </script>
         ";
     } else {
         echo "
             <script>
                 alert('Data gagal ditambahkan !');
-                document.location.href = 'Databuku.php';
+                document.location.href = 'ReqDatabuku.php';
             </script>
         ";
     }
 
 }
 
+
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Buku</title>
+    <link rel="stylesheet"  href="../../bootstrap.min.css" />
+</head>
+<body>
 
             <!-- Content -->
             <div style="background-color:white; height:510px; border: solid; border-left:0; float: right; overflow:scroll;">
-                 <form action="" method="POST">
-                    <div class="container" style="margin-top:40px; float:left; width:990px;">
+                 <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="container" style="margin-top:20px; float:left; width:990px;">
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color:lavenderblush; " ><h4><b><center> Tambah Data Buku </center></b></h4></div>
+                            <div class="panel-heading" style="background-color:lavender; " ><b><center> Tambah Data Buku </center></b></div>
                             <div class="panel-body">
-                                <label for="id_buku">ID Buku:</label>
-                                <input type="number" class="form-control" name="id_buku" id="id_buku" placeholder="Silahkan Masukkan ID Buku" required>
+                                <!-- <label for="id_buku">ID Buku:</label> -->
+                                <input type="hidden" class="form-control" name="id_buku" id="id_buku" placeholder="Silahkan Masukkan ID Buku" required>
                                 <br>
                                 <label for="judul_buku">Judul Buku:</label>
                                 <input type="text" class="form-control" name="judul_buku" id="judul_buku" placeholder="Silahkan Masukkan Judul Buku" required>
@@ -50,13 +61,13 @@ if(isset($_POST["simpan"])){
                                 <br>
 
                                 <label for="tahun_terbit">Tahun Terbit:</label>
-                                <input type="date" class="form-control" name="tahun_terbit" id="tahun_terbit">
+                                <input type="number" class="form-control" name="tahun_terbit" id="tahun_terbit" placeholder="Masukkan Tahun Terbit">
                                 <br>
                                 <label for="isbn">ISBN:</label>
                                 <input type="text" class="form-control" name="isbn" id="isbn" placeholder="Silahkan Masukkan ISBN" required>
                                 <br>
                                 <label for="foto">Gambar Buku:</label>
-                                <input type="text" class="form-control" name="foto" id="foto" placeholder="Silahkan Masukkan Nama Gambar" required>
+                                <input type="file" class="form-control" name="foto" id="foto" placeholder="Silahkan Masukkan Nama Gambar" required>
                                 <br>
                                 <label for="qty">Qty:</label>
                                 <input type="number" class="form-control" name="qty" id="qty" placeholder="Silahkan Masukkan Qty Buku" required>
@@ -71,3 +82,7 @@ if(isset($_POST["simpan"])){
 
             </div>
         </div>
+
+
+</body>
+</html>        

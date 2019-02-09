@@ -14,6 +14,6 @@
     <div class="container-fluid" style="margin:15px; display:inline-block;">
 
         <!-- Header -->
-        <div style="background: lavender; text-align: center; font-style: bold; border: solid; margin-bottom:2px;">
+        <div style="background: lavender; text-align: center; font-style: bold; border: solid; margin-bottom:2px; ">
             <h3><b>WEB PERPUSTAKAAN</b></h3>
         </div>
