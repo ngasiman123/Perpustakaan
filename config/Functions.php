@@ -1,5 +1,4 @@
 <?php
-//Koneksi   ==>nm_host,usrname, password, nm_database 
 $konek = mysqli_connect("localhost","root","","les_php");
 
 function query($query){
